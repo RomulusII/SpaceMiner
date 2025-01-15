@@ -4,27 +4,41 @@ using TMPro;
 public class ReserveManager : MonoBehaviour
 {
     // Reserves sınıfı, tüm kaynakları saklar
-    private Reserves reserves;
+    private Reserves reserves
+    {
+        get
+        {
+            reservesInstance ??= InitializeReserves();
+            return reservesInstance;
+        }
+    }
+
+    private Reserves reservesInstance;
 
     // UI Referansları (TextMeshPro)
     public TextMeshProUGUI ironText;
     public TextMeshProUGUI uraniumText;
     public TextMeshProUGUI aluminiumText;
     public TextMeshProUGUI powerText;
-
+    
 
     void Start()
     {
         // Kaynaklar başlangıç değerleri ile oluşturulur
-        reserves = new Reserves
-        {
-            Iron = 1000f,
-            Uranium = 500f,
-            Aluminium = 800f,
-            Power = 300f
-        };
+
 
         UpdateUI(); // Başlangıçta UI'yi güncelle
+    }
+
+    private Reserves InitializeReserves()
+    {
+        return new Reserves
+        {
+            Iron = 1000f,
+            Uranium = 10f,
+            Aluminium = 100f,
+            Power = 1000f
+        };
     }
 
     public Reserves GetReserves() => reserves;

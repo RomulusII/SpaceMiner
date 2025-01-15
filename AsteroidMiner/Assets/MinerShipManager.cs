@@ -8,7 +8,6 @@ public class MinerShipManager : MonoBehaviour
     public GameObject minerShipPrefab; // Miner Ship prefabı
     public Transform spawnPoint; // Gemilerin oluşacağı konum
     public Button buildButton; // "Build Miner Ship" düğmesi
-    public Text buildButtonText; // Düğme üzerindeki metin
     public float buildTime = 10f; // Bir geminin üretim süresi
     public int ironCost = 100; // Miner Ship için gereken demir miktarı
 
@@ -20,7 +19,7 @@ public class MinerShipManager : MonoBehaviour
     void Start()
     {
         // ReserveManager'ı bul
-        reserveManager = FindAnyObjectByType<ReserveManager>();
+        reserveManager = Object.FindFirstObjectByType<ReserveManager>();
 
         // Düğmeye tıklanma olayını bağla
         buildButton.onClick.AddListener(() => AddToBuildQueue());
@@ -41,7 +40,9 @@ public class MinerShipManager : MonoBehaviour
         if (reserveManager.SpendReserve(ReserveType.Iron, ironCost))
         {
             GameObject newShip = Instantiate(minerShipPrefab, spawnPoint.position, Quaternion.identity);
-            newShip.GetComponent<Renderer>().material.color = new Color(1f, 1f, 1f, 0f); // Başlangıçta tamamen transparan
+            // Ölçeği ayarla
+            newShip.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+
             newShip.SetActive(false); // Üretim tamamlanana kadar gizli
             buildQueue.Enqueue(newShip);
 
@@ -62,24 +63,20 @@ public class MinerShipManager : MonoBehaviour
             GameObject currentShip = buildQueue.Dequeue();
             currentShip.SetActive(true); // Gemi görünür hale gelir
 
-            Material shipMaterial = currentShip.GetComponent<Renderer>().material;
-            float elapsedTime = 0f;
-
-            // Üretim süreci boyunca transparanlığı azalt
-            while (elapsedTime < buildTime)
+            // MinerShip script'inden transparanlık efektini başlat
+            ConstructableShip minerShip = currentShip.GetComponent<ConstructableShip>();
+            if (minerShip != null)
             {
-                elapsedTime += Time.deltaTime;
-                float alpha = Mathf.Clamp01(elapsedTime / buildTime); // Şeffaflık 0'dan 1'e kadar artar
-                shipMaterial.color = new Color(1f, 1f, 1f, alpha);
-                yield return null;
+                minerShip.StartTransparencyEffect(buildTime);
             }
 
-            // Üretim tamamlandı, gemi tamamen opak
-            shipMaterial.color = new Color(1f, 1f, 1f, 1f);
+            // Üretim süresi kadar bekle
+            yield return new WaitForSeconds(buildTime);
         }
 
         isBuilding = false;
     }
+
 
     void UpdateButtonState()
     {
@@ -87,12 +84,10 @@ public class MinerShipManager : MonoBehaviour
         if (reserveManager != null && reserveManager.GetReserves().Iron < ironCost)
         {
             buildButton.interactable = false;
-            buildButtonText.text = "Not Enough Iron";
         }
         else
         {
             buildButton.interactable = true;
-            buildButtonText.text = "Build Miner Ship";
         }
     }
 }
