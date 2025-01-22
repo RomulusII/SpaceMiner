@@ -43,8 +43,15 @@ public class AsteroidManager : MonoBehaviour
                 newAsteroid.transform.parent = transform;
 
                 // Kaynak bileşenini ayarla
-                Asteroid asteroidScript = newAsteroid.AddComponent<Asteroid>();
-                asteroidScript.Initialize(1000); // Başlangıç kaynağı 1000
+                Asteroid asteroidScript = newAsteroid.GetComponent<Asteroid>();
+                Reserves initialReserves = new()
+                {
+                    Iron = 1000
+                };
+
+                asteroidScript.Testname = "initialized asteroid";
+
+                asteroidScript.Initialize(initialReserves); // Başlangıç kaynağı 1000
 
                 asteroids.Add(newAsteroid);
                 spawned++;

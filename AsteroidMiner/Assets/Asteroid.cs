@@ -2,33 +2,40 @@
 
 public class Asteroid : MonoBehaviour
 {
-    private float resource = 1000f; // Asteroidin kaynağı
-    private float initialResource = 1000f; // Başlangıç kaynağı
+    private Reserves initialReserve = new(); // Başlangıç kaynağı
 
-    public void Initialize(float startingResource)
+    private Reserves currentReserve = new();
+
+    public string Testname;
+
+    public void Initialize(Reserves startingResource)
     {
-        resource = startingResource;
-        initialResource = startingResource;
+        currentReserve.Add(startingResource);
+        initialReserve.Add(startingResource);
+
         UpdateScale();
     }
 
     void UpdateScale()
     {
         // Ölçek kaynak miktarına göre ayarlanır
-        float scale = resource / initialResource;
-        transform.localScale = new Vector3(scale, scale, scale);
+        float radius = (float)Mathf.Pow((3 * currentReserve.TotalOre) / (4 * Mathf.PI), 1.0f / 3.0f);
+        
+        //float scale = Mathf.Log(currentReserve.TotalOre);
+        transform.localScale = new Vector3(radius, radius, radius);
     }
 
-    public float MineResource(float amount)
+    public Reserves MineResource(float amount)
     {
-        if (resource < amount)
+        var minedOre = currentReserve.MineChunkOfOre(amount);
+
+        if (currentReserve.TotalOre < amount)
         {
             Destroy(gameObject); // Kaynak sıfırsa asteroid yok edilir
-            return resource;
+            return minedOre;
         }
-
-        resource -= amount;
+        
         UpdateScale();
-        return amount;
+        return minedOre;
     }
 }

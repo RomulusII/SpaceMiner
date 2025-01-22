@@ -36,8 +36,8 @@ public class ReserveManager : MonoBehaviour
         {
             Iron = 1000f,
             Uranium = 10f,
-            Aluminium = 100f,
-            Power = 1000f
+            Aluminium = 10f,
+            Power = 100f
         };
     }
 
@@ -68,6 +68,8 @@ public class ReserveManager : MonoBehaviour
     // Birden fazla kaynağı artırmak için (overload)
     public void AddReserve(Reserves addedReserves)
     {
+        reserves.Add(addedReserves);
+
         reserves.Iron += addedReserves.Iron;
         reserves.Uranium += addedReserves.Uranium;
         reserves.Aluminium += addedReserves.Aluminium;
@@ -118,9 +120,9 @@ public class ReserveManager : MonoBehaviour
     private void UpdateUI()
     {
         // UI'deki metinleri kaynak değerleri ile güncelle
-        if (ironText != null) ironText.text = $"Iron: {reserves.Iron:F2}";
-        if (uraniumText != null) uraniumText.text = $"Uranium: {reserves.Uranium:F2}";
-        if (aluminiumText != null) aluminiumText.text = $"Aluminium: {reserves.Aluminium:F2}";
-        if (powerText != null) powerText.text = $"Power: {reserves.Power:F2}";
+        if (ironText != null) ironText.text = $"Fe: {reserves.Iron:F2}";
+        if (uraniumText != null) uraniumText.text = $"U: {reserves.Uranium:F2}";
+        if (aluminiumText != null) aluminiumText.text = $"Al: {reserves.Aluminium:F2}";
+        if (powerText != null) powerText.text = $"P: {reserves.Power:F2}";
     }
 }

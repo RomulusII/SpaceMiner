@@ -41,7 +41,7 @@ public class MinerShipManager : MonoBehaviour
         {
             GameObject newShip = Instantiate(minerShipPrefab, spawnPoint.position, Quaternion.identity);
             // Ölçeği ayarla
-            newShip.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+            newShip.transform.localScale = new Vector3(0.03f, 0.03f, 0.03f);
 
             newShip.SetActive(false); // Üretim tamamlanana kadar gizli
             buildQueue.Enqueue(newShip);
