@@ -11,18 +11,18 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - ObstacleLayer
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Team1_Ships
+  - Team1_Projectiles
+  - Team2_Ships
+  - Team2_Projectiles
+  - Team3_Ships
+  - Team3_Projectiles
+  - Team4_Ships
+  - Team4_Projectiles
+  - Team0_Ships
   - 
   - 
   - 

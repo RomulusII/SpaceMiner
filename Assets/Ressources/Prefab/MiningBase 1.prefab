@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5801877733415739817}
   - component: {fileID: 4625298487783388920}
   - component: {fileID: 8342122166956293905}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,8 @@ GameObject:
   - component: {fileID: 5410291203446418604}
   - component: {fileID: 4053590781551832704}
   - component: {fileID: -8488250188684060701}
-  m_Layer: 0
+  - component: {fileID: 1831758191175765556}
+  m_Layer: 3
   m_Name: MiningBase 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -239,7 +240,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0862553a9289e1e4a94dfb0cdd62053e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  emptyBar: {fileID: 0}
+  fullBar: {fileID: 0}
+  ShowIfFull: 0
+  ShowIfEmpty: 0
   Hitpoints: 1000
+  initialHitpoints: 0
+--- !u!114 &1831758191175765556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2462456782081227416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 367b2d2237e248c4eaf326ec3e44b1a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teamID: 1
 --- !u!1 &2582712924980476321
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,7 +271,7 @@ GameObject:
   - component: {fileID: 8343991166409783400}
   - component: {fileID: 5608983980205663638}
   - component: {fileID: 8546597273775764275}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sphere (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -360,7 +379,7 @@ GameObject:
   - component: {fileID: 58142538794826156}
   - component: {fileID: 6928409599805661208}
   - component: {fileID: 7704198428502995534}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -468,7 +487,7 @@ GameObject:
   - component: {fileID: 3190831549627881701}
   - component: {fileID: 5434435967684066606}
   - component: {fileID: 3219398926559086020}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -576,7 +595,7 @@ GameObject:
   - component: {fileID: 5987750804585755093}
   - component: {fileID: 755451563822769525}
   - component: {fileID: 5745379582390491761}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cylinder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -687,7 +706,7 @@ GameObject:
   - component: {fileID: 9222258503424880390}
   - component: {fileID: 7370183975480446441}
   - component: {fileID: 4932427150441482443}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -792,7 +811,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 291807371500625455}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ShipSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -825,7 +844,7 @@ GameObject:
   - component: {fileID: 6745330220743162189}
   - component: {fileID: 1524730896174686316}
   - component: {fileID: 5259791085551046748}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -946,7 +965,7 @@ GameObject:
   - component: {fileID: 8257197737771847913}
   - component: {fileID: 2175876214811161992}
   - component: {fileID: 5978784434449936874}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}

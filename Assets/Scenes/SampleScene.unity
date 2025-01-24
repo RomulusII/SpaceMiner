@@ -129,6 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 148167875}
   - component: {fileID: 148167874}
+  - component: {fileID: 148167876}
   m_Layer: 0
   m_Name: EnemyWaveManager
   m_TagString: Untagged
@@ -150,7 +151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bomberShipPrefab: {fileID: 9210083804653648298, guid: 21b45e57da2772245937def329ecadb5, type: 3}
   spawnPoint: {fileID: 148167875}
-  waveInterval: 10
+  waveInterval: 5
 --- !u!4 &148167875
 Transform:
   m_ObjectHideFlags: 0
@@ -166,6 +167,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &148167876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148167873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 367b2d2237e248c4eaf326ec3e44b1a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teamID: 2
 --- !u!1 &165852614
 GameObject:
   m_ObjectHideFlags: 0
@@ -699,29 +713,6 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
---- !u!1 &549171157 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2462456782081227416, guid: 2c9fc625e9bfaff459ba4cb6d7593d63, type: 3}
-  m_PrefabInstance: {fileID: 2077643252}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &549171162
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 549171157}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0862553a9289e1e4a94dfb0cdd62053e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  emptyBar: {fileID: 0}
-  fullBar: {fileID: 0}
-  ShowIfFull: 0
-  ShowIfEmpty: 0
-  Hitpoints: 1000
-  initialHitpoints: 0
 --- !u!1 &574919247
 GameObject:
   m_ObjectHideFlags: 0
@@ -858,6 +849,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 574919247}
   m_CullTransparentMesh: 1
+--- !u!1 &616303693
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 616303695}
+  - component: {fileID: 616303694}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &616303694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 616303693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 367b2d2237e248c4eaf326ec3e44b1a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teamID: 0
+--- !u!4 &616303695
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 616303693}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 21.320583, y: 0.0000001069883, z: -0.89748317}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &634184812
 GameObject:
   m_ObjectHideFlags: 0
@@ -1682,6 +1718,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1947911409}
   - component: {fileID: 1947911408}
+  - component: {fileID: 1947911410}
   m_Layer: 0
   m_Name: MinerShipManager
   m_TagString: Untagged
@@ -1721,6 +1758,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1947911410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947911407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 367b2d2237e248c4eaf326ec3e44b1a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teamID: 1
 --- !u!1 &1962679648
 GameObject:
   m_ObjectHideFlags: 0
@@ -1865,17 +1915,45 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1250852028954499596, guid: 2c9fc625e9bfaff459ba4cb6d7593d63, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1831758191175765556, guid: 2c9fc625e9bfaff459ba4cb6d7593d63, type: 3}
+      propertyPath: teamID
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2462456782081227416, guid: 2c9fc625e9bfaff459ba4cb6d7593d63, type: 3}
       propertyPath: m_Name
       value: 'MiningBase '
       objectReference: {fileID: 0}
     - target: {fileID: 2462456782081227416, guid: 2c9fc625e9bfaff459ba4cb6d7593d63, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2462456782081227416, guid: 2c9fc625e9bfaff459ba4cb6d7593d63, type: 3}
       propertyPath: m_TagString
       value: MiningBase
+      objectReference: {fileID: 0}
+    - target: {fileID: 2582712924980476321, guid: 2c9fc625e9bfaff459ba4cb6d7593d63, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2701901419715485769, guid: 2c9fc625e9bfaff459ba4cb6d7593d63, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2701901419715485769, guid: 2c9fc625e9bfaff459ba4cb6d7593d63, type: 3}
       propertyPath: m_TagString
       value: DropPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 2829953722302309754, guid: 2c9fc625e9bfaff459ba4cb6d7593d63, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2997584316793219470, guid: 2c9fc625e9bfaff459ba4cb6d7593d63, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3919023702672899125, guid: 2c9fc625e9bfaff459ba4cb6d7593d63, type: 3}
       propertyPath: m_LocalScale.x
@@ -1921,13 +1999,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4103457794443252930, guid: 2c9fc625e9bfaff459ba4cb6d7593d63, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433414092414151740, guid: 2c9fc625e9bfaff459ba4cb6d7593d63, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5784348977409086329, guid: 2c9fc625e9bfaff459ba4cb6d7593d63, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043051106347032613, guid: 2c9fc625e9bfaff459ba4cb6d7593d63, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2462456782081227416, guid: 2c9fc625e9bfaff459ba4cb6d7593d63, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 549171162}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c9fc625e9bfaff459ba4cb6d7593d63, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -1943,3 +2034,4 @@ SceneRoots:
   - {fileID: 1947911409}
   - {fileID: 2077643252}
   - {fileID: 148167875}
+  - {fileID: 616303695}

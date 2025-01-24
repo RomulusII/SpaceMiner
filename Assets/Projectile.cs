@@ -6,6 +6,8 @@ public class Projectile : MonoBehaviour
     public float damage = 20f; // Bombanın hasar gücü
     public float lifeTime = 5f; // Bombanın yaşam süresi
 
+    private int teamID => gameObject.GetComponent<TeamProjectile>().teamID;
+
     private void Start()
     {
         Destroy(gameObject, lifeTime); // Bomba belirli bir süre sonra yok olur
@@ -19,8 +21,22 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        // Eğer çarpılan nesne aynı takımdaysa etkileşimi yok say
+        TeamObject teamObject = other.GetComponentInParent<TeamObject>();
+        if (teamObject != null && teamObject.teamID == teamID)
+        {
+            return; // Aynı takımdan olduğu için çarpışmayı yok say
+        }
+
+        // Eğer bir asteroid veya nötr nesneye çarptıysa
+        if (other.gameObject.layer == LayerMask.NameToLayer("Team0Ships"))
+        {
+            Debug.Log("Asteroide çarpıldı!");
+            // Asteroide hasar verme kodu buraya eklenebilir
+        }
+
         // Eğer bir "Destructable" nesneye çarparsa hasar ver
-        Destructable destructable = other.GetComponent<Destructable>();
+        Destructable destructable = other.GetComponentInParent<Destructable>();
         if (destructable != null)
         {
             destructable.TakeDamage(damage);
@@ -29,4 +45,6 @@ public class Projectile : MonoBehaviour
         // Bomba çarpışmadan sonra yok olur
         Destroy(gameObject);
     }
+
+
 }

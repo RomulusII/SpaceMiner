@@ -23,7 +23,7 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnWave()
     {
-        for (int i = 0; i < currentWave; i++)
+        for (int i = 0; i < 1; i++)
         {
             var newShip = Instantiate(bomberShipPrefab, spawnPoint.position + new Vector3(Random.Range(-5f, 5f), 0, Random.Range(-5f, 5f)), spawnPoint.rotation);
             newShip.transform.localScale = new Vector3(0.02f, 0.02f, 0.02f);

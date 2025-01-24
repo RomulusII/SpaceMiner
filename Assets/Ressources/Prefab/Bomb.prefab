@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 5868672187330565449}
   - component: {fileID: 4155854506170813345}
   - component: {fileID: 5051909675525971778}
-  - component: {fileID: 5888428533897818842}
+  - component: {fileID: 8047007074291202799}
+  - component: {fileID: -2104616079782074571}
   m_Layer: 0
   m_Name: Bomb
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 3072962767349870964}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 29.193712, y: -5.313472, z: -6.58593}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -110,7 +111,20 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5888428533897818842
+--- !u!114 &8047007074291202799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3072962767349870964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b02ff5757b1178408a3a6119c709f54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teamID: 0
+--- !u!114 &-2104616079782074571
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,6 +136,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79dad3ef892a2a4a9cfbd997a3093af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 1
+  damage: 20
+  lifeTime: 5
 --- !u!1 &5111204096554383574
 GameObject:
   m_ObjectHideFlags: 0

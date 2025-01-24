@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4012202945328570013}
   - component: {fileID: 8097132059954007680}
   - component: {fileID: 161821620641079300}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: AsteroidPart3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 4080399849632383865}
   - component: {fileID: 980492046757270423}
   - component: {fileID: 7168444968778143525}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: AsteroidPart2 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -228,7 +228,7 @@ GameObject:
   - component: {fileID: 5197601079447689882}
   - component: {fileID: 227924114053715223}
   - component: {fileID: 7582639798844181327}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: AsteroidPart2 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -336,7 +336,7 @@ GameObject:
   - component: {fileID: 1702106677967629455}
   - component: {fileID: 8701062315280349191}
   - component: {fileID: 4173417170217818027}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: AsteroidPart2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -444,7 +444,7 @@ GameObject:
   - component: {fileID: 353302101169152346}
   - component: {fileID: 3278582434676113698}
   - component: {fileID: 3791241716526111097}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: AsteroidPart2 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -554,7 +554,8 @@ GameObject:
   - component: {fileID: 5924840421426150459}
   - component: {fileID: 6502919564544811256}
   - component: {fileID: 7584376370758773982}
-  m_Layer: 0
+  - component: {fileID: 5714495620611544240}
+  m_Layer: 3
   m_Name: Asteroid1
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -685,6 +686,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ab00e57b3399124fbe718fc7a7da6bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Testname: 
+--- !u!114 &5714495620611544240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5411389823388536238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 367b2d2237e248c4eaf326ec3e44b1a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teamID: 0
 --- !u!1 &5764444510759161183
 GameObject:
   m_ObjectHideFlags: 0
@@ -697,7 +712,7 @@ GameObject:
   - component: {fileID: 5357816217330454423}
   - component: {fileID: 3526834804800117985}
   - component: {fileID: 3861029491701396303}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: AsteroidPart2 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -805,7 +820,7 @@ GameObject:
   - component: {fileID: 8892668608127009082}
   - component: {fileID: 9167289994548288940}
   - component: {fileID: 5586291289015095951}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: AsteroidPart2 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -913,7 +928,7 @@ GameObject:
   - component: {fileID: 2104289700802013143}
   - component: {fileID: 3479346806902534459}
   - component: {fileID: 712493760998357048}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: AsteroidPart2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
