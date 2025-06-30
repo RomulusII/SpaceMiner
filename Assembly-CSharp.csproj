@@ -74,6 +74,7 @@
     <Compile Include="Assets\MinerShipManager.cs" />
     <Compile Include="Assets\TeamObject.cs" />
     <Compile Include="Assets\Reserves.cs" />
+    <Compile Include="Assets\MainGunController.cs" />
     <Compile Include="Assets\Asteroid.cs" />
     <Compile Include="Assets\ReserveType.cs" />
     <Compile Include="Assets\MeterBar.cs" />
