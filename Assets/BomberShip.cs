@@ -80,23 +80,25 @@ public class BomberShip : MonoBehaviour
         // Hedefe doğru açıyı hesapla ve döndür
         RotateTowardsTarget(targetDirection);
 
-        // Hareket uygula (Y ekseni sabit)
+        // Hareket uygula (Y ekseni serbest)
         Vector3 movement = transform.forward * currentForwardSpeed;
-        movement.y = 0; // Y ekseni sıfırlandı
+        // movement.y = 0; // Bu satırı kaldırdık
         rb.linearVelocity = movement;
     }
-
     private void RotateTowardsTarget(Vector3 targetDirection)
     {
-        // Hedef yönünü bir quaternion'a çevir
-        Quaternion targetRotation = Quaternion.LookRotation(new Vector3(targetDirection.x, 0, targetDirection.z)); // Y ekseni sıfırlandı
+        // Hedef yönünü bir quaternion'a çevir (Y ekseni sabitlenmedi)
+        if (targetDirection.sqrMagnitude > 0.001f)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(targetDirection.normalized);
 
-        // Gemiyi hedef yönüne doğru döndür (smooth şekilde)
-        transform.rotation = Quaternion.RotateTowards(
-            transform.rotation,
-            targetRotation,
-            rotationSpeed * Time.deltaTime
-        );
+            // Gemiyi hedef yönüne doğru döndür (smooth şekilde)
+            transform.rotation = Quaternion.RotateTowards(
+                transform.rotation,
+                targetRotation,
+                rotationSpeed * Time.deltaTime
+            );
+        }
     }
 
     private void UpdateCombatBehavior(float distanceToTarget)

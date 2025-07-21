@@ -42,14 +42,16 @@ public class Projectile : MonoBehaviour
         }
 
         // Eğer bir "Destructable" nesneye çarparsa hasar ver
-        Destructable destructable = other.GetComponentInParent<Destructable>();
-        if (destructable != null)
-        {
-            destructable.TakeDamage(damage);
-        }
+
+        while (damage > 0)
+            {
+                Damageable demageable = other.GetComponentInParent<Damageable>();
+                if (demageable != null) 
+                    damage = demageable.TakeDamage(damage);
+            }
 
         // Bomba çarpışmadan sonra yok olur
-        Destroy(gameObject);
+        if (damage <= 0) Destroy(gameObject);
     }
 
 }

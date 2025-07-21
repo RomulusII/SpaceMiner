@@ -8,6 +8,7 @@ public class AutoTurret : MonoBehaviour
     public float fireRate = 2f; // Saniyede atış sayısı
     public float bulletSpeed = 30f; // Merminin hızı
     public float detectionRange = 50f; // Taretin algılama menzili
+    public float baseBulletDamage = 10f; // Merminin vereceği taban hasar
 
     [Header("Targeting Settings")]
     public LayerMask enemyLayer; // Düşmanları bulmak için kullanılacak layer
@@ -15,6 +16,8 @@ public class AutoTurret : MonoBehaviour
 
     private float fireCooldown = 0f; // Ateşleme için bekleme süresi
     private Transform currentTarget; // Taretin hedef aldığı düşman
+
+    private bool isAimed = false; // Hedefe nişan alındı mı?
 
     private void Update()
     {
@@ -25,7 +28,7 @@ public class AutoTurret : MonoBehaviour
         if (currentTarget != null)
         {
             AimAtTarget();
-            if (fireCooldown <= 0f)
+            if (isAimed && fireCooldown <= 0f)
             {
                 Fire();
                 fireCooldown = 1f / fireRate; // Ateşleme süresini ayarla
@@ -62,6 +65,8 @@ public class AutoTurret : MonoBehaviour
 
     private void AimAtTarget()
     {
+        isAimed = false; // Her seferinde baştan kontrol et
+
         if (currentTarget == null) return;
 
         // Düşmanın pozisyonunu ve hızını hesaba kat
@@ -77,6 +82,15 @@ public class AutoTurret : MonoBehaviour
             Vector3 direction = (futurePosition - transform.position).normalized;
             Quaternion lookRotation = Quaternion.LookRotation(direction) * Quaternion.Euler(0, -90, 0);
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
+
+            // Açısal farkı hesapla
+            float angleDiff = Quaternion.Angle(transform.rotation, lookRotation);
+
+            // %1'den az ise nişan alındı kabul et (360 * 0.01 = 3.6 derece)
+            if (angleDiff < 3.6f)
+            {
+                isAimed = true;
+            }
         }
     }
 
@@ -105,6 +119,7 @@ public class AutoTurret : MonoBehaviour
         if (bulletScript != null)
         {
             bulletScript.speed = bulletSpeed;
+            bulletScript.damage = baseBulletDamage; // Burada damage atanıyor
         }
 
         // Mermiyi belirli bir süre sonra yok et

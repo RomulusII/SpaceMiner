@@ -1,31 +1,15 @@
 ﻿using UnityEngine;
 
-public class Destructable : HealthMeter
+public class Destructable : Damageable
 {
-
-    public float Hitpoints;
-    public float initialHitpoints;
-
-    private void Start()
+    public override float TakeDamage(float damage) 
     {
-        initialHitpoints = Hitpoints;
-        UpdateHealthBar();
-    }
-
-    public void TakeDamage(float damage)
-    {
-        Hitpoints -= damage;
-
-        UpdateHealthBar();
+        var remDamage = base.TakeDamage(damage);
 
         if (Hitpoints <= 0)
         {
             Destroy(gameObject); // Can 0'ın altına düşerse nesneyi yok et
         }
-    }
-
-    private void UpdateHealthBar()
-    {
-        SetValue(Hitpoints, initialHitpoints);
+        return remDamage; // Geriye kalan hasarı döndür
     }
 }
